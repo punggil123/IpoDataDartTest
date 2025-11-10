@@ -1,0 +1,150 @@
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\public_offering_stock.exe.config
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\public_offering_stock.exe
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\public_offering_stock.pdb
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\obj\Debug\public_offering_stock.Properties.Resources.resources
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\obj\Debug\public_offering_stock.csproj.GenerateResource.cache
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\obj\Debug\public_offering_stock.csproj.CoreCompileInputs.cache
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\obj\Debug\public_offering_stock.exe
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\obj\Debug\public_offering_stock.pdb
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\RestSharp.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Buffers.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Memory.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Numerics.Vectors.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Text.Encodings.Web.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Text.Json.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.ValueTuple.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\RestSharp.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Buffers.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Memory.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Numerics.Vectors.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Text.Encodings.Web.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Text.Json.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.ValueTuple.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\obj\Debug\public_offering_stock.csproj.CopyComplete
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Newtonsoft.Json.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Newtonsoft.Json.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\HtmlAgilityPack.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\HtmlAgilityPack.pdb
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\HtmlAgilityPack.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\obj\Debug\public_offering_stock.MainForm.resources
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Npgsql.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Collections.Immutable.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Threading.Channels.dll
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Microsoft.Bcl.HashCode.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\Npgsql.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Collections.Immutable.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\bin\Debug\System.Threading.Channels.xml
+D:\project\AI스태그\개발\데이터 수집\공모주\public_offering_stock\obj\Debug\public_offering_stock.csproj.AssemblyReference.cache
+C:\project\공모주\public_offering_stock\bin\Debug\public_offering_stock.exe.config
+C:\project\공모주\public_offering_stock\bin\Debug\public_offering_stock.exe
+C:\project\공모주\public_offering_stock\bin\Debug\public_offering_stock.pdb
+C:\project\공모주\public_offering_stock\bin\Debug\HtmlAgilityPack.dll
+C:\project\공모주\public_offering_stock\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\project\공모주\public_offering_stock\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\project\공모주\public_offering_stock\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\project\공모주\public_offering_stock\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\project\공모주\public_offering_stock\bin\Debug\Newtonsoft.Json.dll
+C:\project\공모주\public_offering_stock\bin\Debug\Npgsql.dll
+C:\project\공모주\public_offering_stock\bin\Debug\RestSharp.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Buffers.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Collections.Immutable.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Memory.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Numerics.Vectors.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Text.Encodings.Web.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Text.Json.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Threading.Channels.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\project\공모주\public_offering_stock\bin\Debug\System.ValueTuple.dll
+C:\project\공모주\public_offering_stock\bin\Debug\HtmlAgilityPack.pdb
+C:\project\공모주\public_offering_stock\bin\Debug\HtmlAgilityPack.xml
+C:\project\공모주\public_offering_stock\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\project\공모주\public_offering_stock\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\project\공모주\public_offering_stock\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\project\공모주\public_offering_stock\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\project\공모주\public_offering_stock\bin\Debug\Newtonsoft.Json.xml
+C:\project\공모주\public_offering_stock\bin\Debug\Npgsql.xml
+C:\project\공모주\public_offering_stock\bin\Debug\RestSharp.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Buffers.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Collections.Immutable.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Memory.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Numerics.Vectors.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Text.Encodings.Web.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Text.Json.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Threading.Channels.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\project\공모주\public_offering_stock\bin\Debug\System.ValueTuple.xml
+C:\project\공모주\public_offering_stock\obj\Debug\public_offering_stock.csproj.AssemblyReference.cache
+C:\project\공모주\public_offering_stock\obj\Debug\public_offering_stock.MainForm.resources
+C:\project\공모주\public_offering_stock\obj\Debug\public_offering_stock.Properties.Resources.resources
+C:\project\공모주\public_offering_stock\obj\Debug\public_offering_stock.csproj.GenerateResource.cache
+C:\project\공모주\public_offering_stock\obj\Debug\public_offering_stock.csproj.CoreCompileInputs.cache
+C:\project\공모주\public_offering_stock\obj\Debug\public_offering_stock.csproj.CopyComplete
+C:\project\공모주\public_offering_stock\obj\Debug\public_offering_stock.exe
+C:\project\공모주\public_offering_stock\obj\Debug\public_offering_stock.pdb
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\public_offering_stock.exe.config
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\public_offering_stock.exe
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\public_offering_stock.pdb
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\HtmlAgilityPack.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Newtonsoft.Json.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Npgsql.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\RestSharp.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Buffers.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Collections.Immutable.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Memory.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Numerics.Vectors.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Text.Encodings.Web.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Text.Json.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Threading.Channels.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.ValueTuple.dll
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\HtmlAgilityPack.pdb
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\HtmlAgilityPack.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Newtonsoft.Json.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\Npgsql.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\RestSharp.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Buffers.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Collections.Immutable.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Memory.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Numerics.Vectors.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Text.Encodings.Web.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Text.Json.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Threading.Channels.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\project\공모주_웹크롤링\public_offering_stock\bin\Debug\System.ValueTuple.xml
+C:\project\공모주_웹크롤링\public_offering_stock\obj\Debug\public_offering_stock.csproj.AssemblyReference.cache
+C:\project\공모주_웹크롤링\public_offering_stock\obj\Debug\public_offering_stock.MainForm.resources
+C:\project\공모주_웹크롤링\public_offering_stock\obj\Debug\public_offering_stock.Properties.Resources.resources
+C:\project\공모주_웹크롤링\public_offering_stock\obj\Debug\public_offering_stock.csproj.GenerateResource.cache
+C:\project\공모주_웹크롤링\public_offering_stock\obj\Debug\public_offering_stock.csproj.CoreCompileInputs.cache
+C:\project\공모주_웹크롤링\public_offering_stock\obj\Debug\public_offering_stock.csproj.CopyComplete
+C:\project\공모주_웹크롤링\public_offering_stock\obj\Debug\public_offering_stock.exe
+C:\project\공모주_웹크롤링\public_offering_stock\obj\Debug\public_offering_stock.pdb
