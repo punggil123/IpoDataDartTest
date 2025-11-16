@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Linq;
+using HtmlAgilityPack;
+using System.IO;
+using System.Net;
+using ExcelDataReader;
+using System.Text;
+using System.Data;
 
 namespace IpoDataDartTest
 {
@@ -25,64 +32,33 @@ namespace IpoDataDartTest
         {
             var result = new List<clsIPOData>();
 
+            var krxList = GetKrxIpoGrid("2025-05-16", "2025-11-16");
+            return result;
+
             // 1️⃣ DART: 최근 증권신고서(지분증권)
             var dartList = await GetDartIPOListAsync(startDate, endDate);
 
+            clsDBinfo m_DBInfo = new clsDBinfo();
+            m_DBInfo.InitDBInfo();
+            var companyList = m_DBInfo.GET_COMPANY();
+
+            var dartReportList = ConvertDartList(dartList);
+
+            var newList = dartReportList
+                .Where(r => !companyList.Contains(r.Company) &&
+                            !r.Company.Contains("인수목적"))
+                .ToList();
+            //번호 합치기
+            //데이터 없는것만
+            //https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251031000457
+            //https://dart.fss.or.kr/dsaf001/main.do?rcpNo={rcept_no}
+            //		ReportName	"[발행조건확정]증권신고서(지분증권)"	승인종목 20251105000307 더핑크퐁컴퍼니
+            // 
+            //https://kind.krx.co.kr/listinvstg/pubofrprogcom.do?method=searchPubofrProgComMain
+
             // 2️⃣ KRX: 상장예정 공모주 리스트
-            var krxList = await GetKrxIpoScheduleListAsync();
+            //var krxList = await GetIpoListAsync();
 
-            foreach (var item in krxList)
-            {
-                string isuCd = item.Value<string>("ISU_CD") ?? "";
-                string isuNm = item.Value<string>("ISU_NM") ?? "";
-                string market = item.Value<string>("MKT_NM") ?? "";
-                string listDate = item.Value<string>("LIST_DDT") ?? "";
-                string underwriter = item.Value<string>("LEAD_MNG") ?? "";
-
-                // 3️⃣ KRX: 종목별 상세 청약정보
-                var detailList = await GetKrxIpoSubscriptionDetailAsync(isuCd);
-
-                string subStart = "", subEnd = "", refund = "";
-                if (detailList.Count > 0)
-                {
-                    var d = detailList[0];
-                    subStart = d["SUBS_START_DT"]?.ToString() ?? "";
-                    subEnd = d["SUBS_END_DT"]?.ToString() ?? "";
-                    refund = d["REFUND_DT"]?.ToString() ?? "";
-                }
-
-                // 4️⃣ DART 매칭
-                JObject dart = null;
-                foreach (var d in dartList)
-                {
-                    if (isuNm.Replace("(주)", "").Trim().Contains(d.Value<string>("corp_name") ?? ""))
-                    {
-                        dart = (JObject)d;
-                        break;
-                    }
-                }
-
-                // 5️⃣ 결과 구성
-                var ipo = new clsIPOData
-                {
-                    Company = isuNm,
-                    CodeId = isuCd,
-                    Exchange = market,
-                    ListingDate = listDate,
-                    Underwriter = underwriter,
-                    SubscriptionDate = $"{subStart}~{subEnd}",
-                    RefundDate = refund,
-                    ConfirmedPrice = dart?["isu_pric"]?.ToString() ?? "",
-                    DesiredPrice = dart?["hope_prc_rang"]?.ToString() ?? "",
-                    TotalNumber = dart?["isu_am"]?.ToString() ?? "",
-                    CompanyInfo = dart?["hm_url"]?.ToString() ?? "",
-                    InfoUrl = dart != null ? $"https://dart.fss.or.kr/dsaf001/main.do?rcpNo={dart.Value<string>("rcept_no")}" : ""
-                };
-
-                result.Add(ipo);
-            }
-
-            Console.WriteLine($"✅ 총 {result.Count}건 IPO 청약정보 수집 완료");
             return result;
         }
 
@@ -118,106 +94,122 @@ namespace IpoDataDartTest
             return total;
         }
 
+        public List<DartReport> ConvertDartList(JArray array)
+        {
+            var result = new List<DartReport>();
+
+            foreach (var item in array)
+            {
+                var report = new DartReport
+                {
+                    Company = item["corp_name"]?.ToString() ?? "",
+                    ReportName = item["report_nm"]?.ToString() ?? "",
+                    RceptNo = item["rcept_no"]?.ToString() ?? ""
+                };
+
+                result.Add(report);
+            }
+
+            return result;
+        }
         // ───────────────────────────────────────
         // ② KRX - 상장예정 IPO 목록 (MDCSTAT06002)
         // ───────────────────────────────────────
-        private async Task<JArray> GetKrxIpoScheduleListAsync()
+        /// <summary>
+        /// KIND 공모기업현황에서 IPO 리스트를 가져온다.
+        /// $"https://kind.krx.co.kr/listinvstg/pubofrprogcom.do?method=searchPubofrProgComMain" +
+        /// $"&fromDate={startDate.Replace("-", "")}" +
+        /// $"&toDate={endDate.Replace("-", "")}";
+        /// </summary>
+        public async Task<List<KrxIpoItem>> GetKrxIpoGrid(string startDate, string endDate)
         {
-            try
+            // xls 인코딩 지원 등록
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+            var handler = new HttpClientHandler();
+            handler.UseCookies = true;
+            handler.CookieContainer = new CookieContainer();
+            handler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+
+            HttpClient client = new HttpClient(handler);
+            client.BaseAddress = new Uri("https://kind.krx.co.kr");
+
+            client.DefaultRequestHeaders.Add("User-Agent",
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36");
+
+            // KIND 엑셀 다운로드 요청
+            var form = new MultipartFormDataContent();
+            form.Add(new StringContent("searchPubofrProgComSub"), "method");
+            form.Add(new StringContent("pubofrprogcom_down"), "forward");
+            form.Add(new StringContent("3000"), "currentPageSize");
+            form.Add(new StringContent("1"), "pageIndex");
+            form.Add(new StringContent(""), "marketType");
+            form.Add(new StringContent(""), "searchCorpName");
+            form.Add(new StringContent(startDate.Replace("-", "")), "fromDate");
+            form.Add(new StringContent(endDate.Replace("-", "")), "toDate");
+
+            HttpResponseMessage response = await client.PostAsync("/listinvstg/pubofrprogcom.do", form);
+            response.EnsureSuccessStatusCode();
+
+            byte[] excelBytes = await response.Content.ReadAsByteArrayAsync();
+            List<KrxIpoItem> result = new List<KrxIpoItem>();
+            string path = @"C:\Temp\공모기업현황.xls";
+            string dir = Path.GetDirectoryName(path);
+
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+            File.WriteAllBytes(path, excelBytes);
+
+            using (var stream = new MemoryStream(excelBytes))
             {
-                const string url = "https://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd";
-
-                var payload = new Dictionary<string, string>
-        {
-            { "bld", "dbms/MDC/STAT/standard/MDCSTAT06002" },
-            { "mktId", "ALL" },          // 코스피+코스닥 전체
-            { "pubType", "ALL" },        // 공모구분 전체 (일반/스팩/기술특례 등)
-            { "share", "1" },
-            { "csvxls_isNo", "false" },
-            { "locale", "ko_KR" }
-        };
-
-                var content = new FormUrlEncodedContent(payload);
-
-                var req = new HttpRequestMessage(HttpMethod.Post, url)
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
                 {
-                    Content = content
-                };
+                    bool isHeader = true;
 
-                // Referer는 반드시 06002 페이지로 맞춰야 함
-                req.Headers.Add("Origin", "https://data.krx.co.kr");
-                req.Headers.Add("Referer", "https://data.krx.co.kr/contents/MDC/STAT/standard/MDCSTAT06002.jsp");
-                req.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
-                req.Headers.Add("Accept", "application/json, text/javascript, */*; q=0.01");
+                    while (reader.Read())
+                    {
+                        if (isHeader) { isHeader = false; continue; }
 
-                var res = await _client.SendAsync(req);
-                var json = await res.Content.ReadAsStringAsync();
+                        if (reader.FieldCount < 9) continue;
+                        if (reader.GetValue(0) == null) continue;
 
-                if (json.StartsWith("<html"))
-                {
-                    Console.WriteLine("[KRX] HTML 에러페이지 수신됨");
-                    return new JArray();
+                        KrxIpoItem item = new KrxIpoItem();
+                        item.Company = reader.GetValue(0)?.ToString()?.Trim();
+                        item.SubmitDate = reader.GetValue(1)?.ToString()?.Trim();
+                        item.ForecastDate = reader.GetValue(2)?.ToString()?.Trim();
+                        item.SubscriptionDate = reader.GetValue(3)?.ToString()?.Trim();
+                        item.PaymentDate = reader.GetValue(4)?.ToString()?.Trim();
+                        item.ConfirmedPrice = reader.GetValue(5)?.ToString()?.Trim();
+                        item.OfferingAmount = reader.GetValue(6)?.ToString()?.Trim();
+                        item.ListingDate = reader.GetValue(7)?.ToString()?.Trim();
+                        item.Underwriter = reader.GetValue(8)?.ToString()?.Trim();
+
+                        result.Add(item);
+                    }
                 }
-
-                var obj = JObject.Parse(json);
-
-                // KRX는 OutBlock_1 또는 output으로 줄 때가 있음 → 둘 다 체크
-                var arr = obj["OutBlock_1"] as JArray ?? obj["output"] as JArray;
-                Console.WriteLine($"[KRX IPO LIST] {(arr != null ? arr.Count : 0)}건 조회됨");
-                return arr ?? new JArray();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[KRX] 상장예정 조회 오류: {ex.Message}");
-                return new JArray();
-            }
+
+            client.Dispose();
+            return result;
         }
-
-
-        // ───────────────────────────────────────
-        // ③ KRX - 종목별 청약상세 (MDCSTAT06001)
-        // ───────────────────────────────────────
-        private async Task<JArray> GetKrxIpoSubscriptionDetailAsync(string isuCd)
-        {
-            return await PostKrxAsync("dbms/MDC/STAT/standard/MDCSTAT06001", new Dictionary<string, string>
-            {
-                { "isuCd", isuCd },
-                { "locale", "ko_KR" }
-            });
-        }
-
-        // ───────────────────────────────────────
-        // ④ KRX 요청 공통 함수
-        // ───────────────────────────────────────
-        private async Task<JArray> PostKrxAsync(string bld, Dictionary<string, string> parameters)
-        {
-            try
-            {
-                string url = "https://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd";
-                parameters["bld"] = bld;
-
-                var content = new FormUrlEncodedContent(parameters);
-                var req = new HttpRequestMessage(HttpMethod.Post, url) { Content = content };
-
-                var parts = bld.Split('/');
-                var last = parts[parts.Length - 1];
-                req.Headers.Add("Origin", "https://data.krx.co.kr");
-                req.Headers.Add("Referer", $"https://data.krx.co.kr/contents/MDC/STAT/standard/{last}.jsp");
-                req.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
-                req.Headers.Add("Accept", "application/json, text/javascript, */*; q=0.01");
-
-                var res = await _client.SendAsync(req);
-                string json = await res.Content.ReadAsStringAsync();
-
-                if (json.StartsWith("<html")) return new JArray();
-
-                JObject obj = JObject.Parse(json);
-                return obj["OutBlock_1"] as JArray ?? new JArray();
-            }
-            catch
-            {
-                return new JArray();
-            }
-        }
+    }
+    public class DartReport
+    {
+        public string Company { get; set; }
+        public string ReportName { get; set; }
+        public string RceptNo { get; set; }
+    }
+    public class KrxIpoItem
+    {
+        public string Company { get; set; }
+        public string SubmitDate { get; set; }
+        public string ForecastDate { get; set; }
+        public string SubscriptionDate { get; set; }
+        public string PaymentDate { get; set; }
+        public string ConfirmedPrice { get; set; }
+        public string OfferingAmount { get; set; }
+        public string ListingDate { get; set; }
+        public string Underwriter { get; set; }
     }
 }

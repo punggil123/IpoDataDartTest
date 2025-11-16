@@ -22,7 +22,6 @@ C:\project\git\IpoDataDartTest\bin\Debug\System.Text.Encodings.Web.dll
 C:\project\git\IpoDataDartTest\bin\Debug\System.Text.Json.dll
 C:\project\git\IpoDataDartTest\bin\Debug\System.Threading.Channels.dll
 C:\project\git\IpoDataDartTest\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\project\git\IpoDataDartTest\bin\Debug\System.ValueTuple.dll
 C:\project\git\IpoDataDartTest\bin\Debug\HtmlAgilityPack.pdb
 C:\project\git\IpoDataDartTest\bin\Debug\HtmlAgilityPack.xml
 C:\project\git\IpoDataDartTest\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
@@ -42,9 +41,16 @@ C:\project\git\IpoDataDartTest\bin\Debug\System.Text.Encodings.Web.xml
 C:\project\git\IpoDataDartTest\bin\Debug\System.Text.Json.xml
 C:\project\git\IpoDataDartTest\bin\Debug\System.Threading.Channels.xml
 C:\project\git\IpoDataDartTest\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\project\git\IpoDataDartTest\bin\Debug\System.ValueTuple.xml
 C:\project\git\IpoDataDartTest\obj\Debug\IpoDataDartTest.Properties.Resources.resources
 C:\project\git\IpoDataDartTest\obj\Debug\IpoDataDartTest.csproj.CoreCompileInputs.cache
 C:\project\git\IpoDataDartTest\obj\Debug\IpoDataDartTest.csproj.CopyComplete
 C:\project\git\IpoDataDartTest\obj\Debug\IpoDataDartTest.exe
 C:\project\git\IpoDataDartTest\obj\Debug\IpoDataDartTest.pdb
+C:\project\git\IpoDataDartTest\bin\Debug\ExcelDataReader.DataSet.dll
+C:\project\git\IpoDataDartTest\bin\Debug\ExcelDataReader.dll
+C:\project\git\IpoDataDartTest\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\project\git\IpoDataDartTest\bin\Debug\ExcelDataReader.pdb
+C:\project\git\IpoDataDartTest\bin\Debug\ExcelDataReader.xml
+C:\project\git\IpoDataDartTest\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\project\git\IpoDataDartTest\bin\Debug\ExcelDataReader.DataSet.xml
+C:\project\git\IpoDataDartTest\bin\Debug\System.Text.Encoding.CodePages.xml

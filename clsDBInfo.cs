@@ -1018,6 +1018,48 @@ namespace IpoDataDartTest
             {
             }
         }
+        public List<string> GET_COMPANY()
+        {
+            List<string> companyList = new List<string>();
+            SqlReader = null;
+            NpgsqlCommand SqlComm = new NpgsqlCommand();
+
+            // DB에 대한 connection check
+            // 새로 DB에 대한 접속을 연결하며 데이터를 새로 받는다.
+            bool bconn = IsDBConnection();
+            if (bconn == false)
+                return companyList;
+
+            try
+            {
+                SqlComm.Connection = SqlConn;
+
+                SqlComm.CommandText = String.Format(@"  SELECT company
+	                                                    FROM PUBLIC.data_ipo WHERE company != '알지노믹스'");
+
+                SqlReader = SqlComm.ExecuteReader();
+
+                if (!SqlReader.HasRows)
+                {
+                    return companyList;
+                }
+
+                while (SqlReader.Read())
+                {
+                    companyList.Add(SqlReader["company"].ToString());
+                }
+                return companyList;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return companyList;
+            }
+            finally
+            {
+                SqlReaderClose();
+            }
+        }
         public void GET_STAGSTOCKSALL()
         {
             SqlReader = null;
